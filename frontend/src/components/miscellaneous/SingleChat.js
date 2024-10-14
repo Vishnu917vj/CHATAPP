@@ -12,7 +12,7 @@ import * as animationData from '../../animation/typing.json';
 import { getPic, getSender } from '../config/ChatLogic';
 import '../styles/anime.css'
 
-const endpoint = "http://localhost:5000";
+const endpoint = "https://chatappbackend-lvdf.onrender.com";
 let socket, selectedChatCompare;
 
 const defaultOptions = {
@@ -50,7 +50,7 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
       const config = {
         headers: { Authorization: `Bearer ${user.token}` },
       };
-      const { data } = await axios.get(`/api/message/${selectedChat._id}`, config);
+      const { data } = await axios.get(`https://chatappbackend-lvdf.onrender.com/api/message/${selectedChat._id}`, config);
       setMessages(data);
       socket.emit('join chat', selectedChat._id);
     } catch (error) {
@@ -140,7 +140,7 @@ function SingleChat({ fetchAgain, setFetchAgain }) {
         const config = {
           headers: { Authorization: `Bearer ${user.token}` },
         };
-        const { data } = await axios.post('/api/message', messageData, config);
+        const { data } = await axios.post('https://chatappbackend-lvdf.onrender.com/api/message', messageData, config);
         socket.emit('new message', data);
       } catch (error) {
         console.error('Error sending message', error);
