@@ -53,7 +53,7 @@ function GroupChatForSettings({fetchAgain,setFetchAgain}) {
 
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/users/allusers?search=${query}`, {
+      const { data } = await axios.get(`https://chatappbackend-lvdf.onrender.com/api/users/allusers?search=${query}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setSearchResult(data);
@@ -84,7 +84,7 @@ function GroupChatForSettings({fetchAgain,setFetchAgain}) {
         };
   
         const { data } = await axios.put(
-          '/api/chat/groupremove',
+          'https://chatappbackend-lvdf.onrender.com/api/chat/groupremove',
           {
             chatId: selectedChat._id,
             userId: userToRemove._id,
@@ -124,7 +124,7 @@ function GroupChatForSettings({fetchAgain,setFetchAgain}) {
         }
         // Make the API call to add the user to the group
         const { data } = await axios.put(
-          '/api/chat/groupadd',
+          'https://chatappbackend-lvdf.onrender.com/api/chat/groupadd',
           {
             chatId: selectedChat._id,
             userId: selectedUser._id,
@@ -159,7 +159,7 @@ function GroupChatForSettings({fetchAgain,setFetchAgain}) {
                   Authorization: `Bearer ${user.token}`,
                 },
             };
-            const {data}=await axios.put('/api/chat/rename',{
+            const {data}=await axios.put('https://chatappbackend-lvdf.onrender.com/api/chat/rename',{
                 chatId:selectedChat._id,
                 chatName:groupName,
             },config);
