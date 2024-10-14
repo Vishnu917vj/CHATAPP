@@ -28,7 +28,7 @@ function ProfileModel() {
                         Authorization: `Bearer ${user.token}`,
                     },
                 };
-                const { data } = await axios.post("/api/users/updateprofilepic", { pic }, config);
+                const { data } = await axios.post("https://chatappbackend-lvdf.onrender.com/api/users/updateprofilepic", { pic }, config);
                 setLoading(false);
                 window.alert("Profile pic changed");
                 setUser({ ...user, pic: data.profilePicture });
@@ -53,7 +53,7 @@ function ProfileModel() {
                         Authorization: `Bearer ${user.token}`,
                     },
                 };
-                const { data } = await axios.post("/api/users/updateusername", { name: username }, config);
+                const { data } = await axios.post("https://chatappbackend-lvdf.onrender.com/api/users/updateusername", { name: username }, config);
                 setLoading(false);
                 window.alert("Username changed");
                 setUser({ ...user, username: data.username });

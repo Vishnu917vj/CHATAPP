@@ -11,7 +11,7 @@ const Login = () => {
     const [email,setEmail]=useState("");
     const handleSubmit=(e)=>{
       e.preventDefault();
-        axios.post("/api/users/login",{email,password}).then((response)=>{
+        axios.post("https://chatappbackend-lvdf.onrender.com/api/users/login",{email,password}).then((response)=>{
           console.log(response.data.user);
             localStorage.setItem("userInfo",JSON.stringify(response.data.user));
             navigate("/chat");

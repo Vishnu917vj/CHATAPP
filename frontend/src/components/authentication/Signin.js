@@ -33,7 +33,7 @@ const Signin = () => {
         };
 
         // Add user to database
-        axios.post("/api/users", user)
+        axios.post("https://chatappbackend-lvdf.onrender.com/api/users", user)
             .then((response) => {
                 window.alert("Registered successfully");
                 console.log(response.data);
