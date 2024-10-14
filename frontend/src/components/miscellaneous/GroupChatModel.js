@@ -47,7 +47,7 @@ function GroupChatModel() {
 
     try {
       setLoading(true);
-      const { data } = await axios.get(`/api/users/allusers?search=${query}`, {
+      const { data } = await axios.get(`https://chatappbackend-lvdf.onrender.com/api/users/allusers?search=${query}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
       setSearchResult(data);
@@ -89,7 +89,7 @@ function GroupChatModel() {
         },
       };
 
-      const { data } = axios.post('/api/chat/group', groupChatData, config);
+      const { data } = axios.post('https://chatappbackend-lvdf.onrender.com/api/chat/group', groupChatData, config);
 
       setChats([data, ...chats]);
 
