@@ -35,7 +35,7 @@ function SearchModel() {
         },
       };
 
-      const { data } = await axios.get(`/api/users/allusers?search=${query}`, config);
+      const { data } = await axios.get(`https://chatappbackend-lvdf.onrender.com/api/users/allusers?search=${query}`, config);
       setSearchResult(data);
     } catch (err) {
       console.log(err);
@@ -54,7 +54,7 @@ function SearchModel() {
     };
 
     try {
-      const { data } = await axios.post('/api/chat/', { userId }, config);
+      const { data } = await axios.post('https://chatappbackend-lvdf.onrender.com/api/chat/', { userId }, config);
 
       if (!chats.find((c) => c._id === data._id)) {
         setChats([...chats, data]);
